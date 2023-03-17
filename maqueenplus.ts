@@ -207,7 +207,7 @@ namespace DFRobotMaqueenPlusV2 {
     }
 
     /**
-     * Left and right LED headlights control
+     * LED headlights control
      * @param eled LED selector
      * @param eSwitch ON/OFF state
      * @return  None
@@ -241,7 +241,7 @@ namespace DFRobotMaqueenPlusV2 {
     /**
      * Get the state of the line tracking sensor
      * @param eline  line tracking sensor selector
-     * @return the status of the selected line tracking sensor (above line or not)
+     * @return line tracking sensor state (above line or not)
      */
     //% block="read line sensor %eline state"
     //% weight=96
@@ -274,7 +274,7 @@ namespace DFRobotMaqueenPlusV2 {
      * @param eline  line tracking sensor selector
      * @return sensor raw value (0-255)
      */
-    //% block="read line sensor %eline  ADC data"
+    //% block="read line sensor %eline raw data"
     //% weight=95
     export function readLineSensorData(eline:MyEnumLineSensor):number{
         let data;
@@ -309,12 +309,12 @@ namespace DFRobotMaqueenPlusV2 {
         return data;
     }
     /**
-     * Get ultrasonic distance sensor value
-     * @param trig trig pin selector enumeration eg:DigitalPin.P13
-     * @param echo echo pin selector eg:DigitalPin.P14
+     * Get ultrasonic distance sensor value (in cm)
+     * @param trig trigger pin (eg:DigitalPin.P13)
+     * @param echo echo pin (eg:DigitalPin.P14)
      * @return ultrasonic sensor reading
      */
-    //% block="read dist (cm) sensor TRIG %trig ECHO pin %echo"
+    //% block="read dist sensor (TRIG pin: %trig / ECHO pin: %echo)"
     //% weight=94
     export function readUltrasonic(trig:DigitalPin, echo:DigitalPin):number{
         let data;
