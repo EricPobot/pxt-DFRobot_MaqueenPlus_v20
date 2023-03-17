@@ -1,5 +1,5 @@
 
-//电机选择枚举
+// Motor selection enumeration
 enum MyEnumMotor{
     //% block="left motor"
     eLeftMotor,
@@ -9,7 +9,7 @@ enum MyEnumMotor{
     eAllMotor,
 };
 
-//电机方向枚举选择
+// Motor direction enumeration
 enum MyEnumDir{
     //% block="rotate forward"
     eForward,
@@ -17,7 +17,7 @@ enum MyEnumDir{
     eBackward,
 };
 
-//LED灯选择枚举
+// LED selection enumeration
 enum MyEnumLed{
     //% block="left led light"
     eLeftLed,
@@ -27,15 +27,15 @@ enum MyEnumLed{
     eAllLed,
 };
 
-//LED灯开关枚举选择
+// LED state enumeration
 enum MyEnumSwitch{
-    //% block="close"
+    //% block="OFF"
     eClose,
-    //% block="open"
+    //% block="ON"
     eOpen,
 };
 
-//巡线传感器选择
+// Line tracking sensor selection
 enum MyEnumLineSensor{
     //% block="L1"
     eL1,
@@ -89,7 +89,7 @@ const VERSION_CNT_REGISTER = 0X32;
 const VERSION_DATA_REGISTER = 0X33;
 
 /**
- * 自定义图形块
+ * Custom graphic blocks
  */
 //% weight=100 color=#0fbc11 icon="\uf067" block="Maqueen Plus V2"
 namespace DFRobotMaqueenPlusV2 {
@@ -134,11 +134,11 @@ namespace DFRobotMaqueenPlusV2 {
         basic.clearScreen()
     }
     /**
-     * TODO: 电机控制模块
-     * @param emotor 电机选择枚举
-     * @param edir   电机方向选择枚举
-     * @param speed  电机速度控制 eg:100
-     * @return 无
+     * Motor Control
+     * @param emotor motor selector
+     * @param edir   direction selector
+     * @param speed  speed eg:100
+     * @return None
      */
     //% block="set %emotor direction %edir speed %speed"
     //% speed.min=0 speed.max=255
@@ -201,10 +201,10 @@ namespace DFRobotMaqueenPlusV2 {
     }
 
     /**
-     * TODO: 控制左右LED灯开关模块
-     * @param eled LED灯选择
-     * @param eswitch 控制LED灯的打开或关闭
-     * @return  无
+     * Left and right LED headlights control
+     * @param eled LED selector
+     * @param eswitch ON/OFF state
+     * @return  None
      */
     //% block="control %eled %eSwitch"
     //% weight=97
@@ -233,9 +233,9 @@ namespace DFRobotMaqueenPlusV2 {
     }
 
     /**
-     * TODO: 获取巡线传感器状态
-     * @param eline  选择巡线传感器枚举
-     * @return 返回选择巡线传感器状态
+     * Get the state of the line tracking sensor
+     * @param eline  line tracking sensor selector
+     * @return the status of the selected line tracking sensor (above line or not)
      */
     //% block="read line sensor %eline state"
     //% weight=96
@@ -264,9 +264,9 @@ namespace DFRobotMaqueenPlusV2 {
     }
     
     /**
-     * TODO: 获取巡线传感器ADC数据
-     * @param eline 选择巡线传感器枚举
-     * @return 返回选择巡线传感器AD值
+     * Get ADC reading of line tracking sensor
+     * @param eline  line tracking sensor selector
+     * @return sensor raw value (0-255)
      */
     //% block="read line sensor %eline  ADC data"
     //% weight=95
@@ -303,10 +303,10 @@ namespace DFRobotMaqueenPlusV2 {
         return data;
     }
     /**
-     * DOTO:获取超声波数据
-     * @param trig trig引脚选择枚举 eg:DigitalPin.P13
-     * @param echo echo引脚选择枚举 eg:DigitalPin.P14
-     * @return 返回超声波获取的数据
+     * Get ultrasonic sensor value
+     * @param trig trig pin selector enumeration eg:DigitalPin.P13
+     * @param echo echo pin selector eg:DigitalPin.P14
+     * @return ultrasonic sensor reading
      */
     //% block="set ultrasonic sensor TRIG pin %trig ECHO pin %echo read data company:cm"
     //% weight=94
@@ -335,9 +335,9 @@ namespace DFRobotMaqueenPlusV2 {
     }
 
     /**
-     * DOTO: 获取版本号
-     * @param 无
-     * @return 返回版本号
+     * Get the robot version number
+     * @param None
+     * @return version number
      */
     //% block="read version"
     //% weight=2
@@ -577,6 +577,3 @@ namespace DFRobotMaqueenPlusV2 {
         return (r << 16) + (g << 8) + b;
     }
 }
-
-
-
