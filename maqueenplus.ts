@@ -134,13 +134,13 @@ namespace DFRobotMaqueenPlusV2 {
         basic.clearScreen()
     }
     /**
-     * Motor Control
+     * Start motor
      * @param emotor motor selector
      * @param edir   direction selector
      * @param speed  speed eg:100
      * @return None
      */
-    //% block="set %emotor direction %edir speed %speed"
+    //% block="run %emotor dir %edir at speed %speed"
     //% speed.min=0 speed.max=255
     //% weight=99
     export function controlMotor(emotor:MyEnumMotor, edir:MyEnumDir, speed:number):void{
@@ -170,7 +170,13 @@ namespace DFRobotMaqueenPlusV2 {
             break;   
         }
     }
-    //% block="set %emotor stop"
+    
+    /**
+     * Stop motor
+     * @param emotor motor selector
+     * @return None
+     */
+    //% block="stop %emotor"
     //% weight=98
     export function controlMotorStop(emotor:MyEnumMotor):void{
         switch (emotor) {
@@ -203,7 +209,7 @@ namespace DFRobotMaqueenPlusV2 {
     /**
      * Left and right LED headlights control
      * @param eled LED selector
-     * @param eswitch ON/OFF state
+     * @param eSwitch ON/OFF state
      * @return  None
      */
     //% block="control %eled %eSwitch"
@@ -303,12 +309,12 @@ namespace DFRobotMaqueenPlusV2 {
         return data;
     }
     /**
-     * Get ultrasonic sensor value
+     * Get ultrasonic distance sensor value
      * @param trig trig pin selector enumeration eg:DigitalPin.P13
      * @param echo echo pin selector eg:DigitalPin.P14
      * @return ultrasonic sensor reading
      */
-    //% block="set ultrasonic sensor TRIG pin %trig ECHO pin %echo read data company:cm"
+    //% block="read dist (cm) sensor TRIG %trig ECHO pin %echo"
     //% weight=94
     export function readUltrasonic(trig:DigitalPin, echo:DigitalPin):number{
         let data;
