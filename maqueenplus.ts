@@ -281,7 +281,7 @@ namespace DFRobotMaqueenPlusV2 {
         switch(eline){
             case MyEnumLineSensor.eR2:
                 pins.i2cWriteNumber(I2CADDR, ADC0_REGISTER, NumberFormat.Int8LE);
-                let adc0Buffer = pins.i2cReadBuffer(I2CADDR, 1);
+                let adc0Buffer = pins.i2cReadBuffer(I2CADDR, 2);
                 data = adc0Buffer[1] << 8 | adc0Buffer[0]
             break;
             case MyEnumLineSensor.eR1:
