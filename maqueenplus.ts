@@ -268,6 +268,19 @@ namespace DFRobotMaqueenPlusV2 {
         }
         return state;
     }
+
+    /**
+     * Get the state of all line tracking sensors in one shot
+     * @param None
+     * @return line tracking sensor states (as a bit pattern)
+     */
+    //% block="read all line sensors state"
+    //% weight=95
+    export function readLineSensorStates(): number{
+        pins.i2cWriteNumber(I2CADDR, LINE_STATE_REGISTER, NumberFormat.Int8LE);
+        let data = pins.i2cReadNumber(I2CADDR, NumberFormat.Int8LE);
+        return data & 0x1f;
+    }
     
     /**
      * Get ADC reading of line tracking sensor
@@ -310,8 +323,8 @@ namespace DFRobotMaqueenPlusV2 {
     }
     /**
      * Get ultrasonic distance sensor value (in cm)
-     * @param trig trigger pin (eg:DigitalPin.P13)
-     * @param echo echo pin (eg:DigitalPin.P14)
+     * @param trig trigger pin , eg: DigitalPin.P13
+     * @param echo echo pin , eg: DigitalPin.P14
      * @return ultrasonic sensor reading
      */
     //% block="read dist sensor (TRIG pin: %trig / ECHO pin: %echo)"
